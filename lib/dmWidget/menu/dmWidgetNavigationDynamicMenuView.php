@@ -22,6 +22,10 @@ class dmWidgetNavigationDynamicMenuView extends dmWidgetNavigationMenuView
       ->label($item['text'])
       ->secure(!empty($item['secure']))
       ->liClass($vars['liClass']);
+
+			if(!empty($item['secure']) && !empty($item['credentials'])) {
+				$menuItem->credentials($item['credentials']);
+			}
       
       $depth = dmArray::get($item, 'depth', 0);
       if ($depth!=0)
